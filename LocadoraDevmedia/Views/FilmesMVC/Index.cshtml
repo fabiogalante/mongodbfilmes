@@ -1,0 +1,45 @@
+﻿@model IEnumerable<LocadoraDevmedia.Models.Filme>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Adiciona novo filme", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Titulo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Preco)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Categoria)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Titulo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Preco)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Categoria)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { _id=item._id }) |
+                @Html.ActionLink("Details", "Details", new { _id=item._id }) |
+                @Html.ActionLink("Delete", "Delete", new { _id=item._id })
+            </td>
+        </tr>
+    }
+
+</table>
