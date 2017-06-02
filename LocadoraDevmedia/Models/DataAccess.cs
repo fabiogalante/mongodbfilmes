@@ -12,7 +12,8 @@ namespace LocadoraDevmedia.Models
 
     public class DataAccess
     {
-        internal string conexao = "mongodb://galante:sf530064$@ds157971.mlab.com:57971/locadoradb";//"mongodb://127.0.0.1:27017";
+        internal string conexao = "mongodb://estudos:10102030F@ds157971.mlab.com:57971/locadoradb";//"mongodb://127.0.0.1:27017";
+        String uri = "mongodb://user:pass@host:port/db";
         private readonly MongoClient _cliente;
         private readonly IMongoDatabase _banco;
         private IMongoCollection<Filme> _collection;
@@ -20,7 +21,7 @@ namespace LocadoraDevmedia.Models
         public DataAccess()
         {
             _cliente = new MongoClient(conexao);
-            _banco = _cliente.GetDatabase("LocadoraDB");
+            _banco = _cliente.GetDatabase("locadoradb");
             _collection = _banco.GetCollection<Filme>("Filmes");
         }
 
